@@ -1,0 +1,3 @@
+﻿  13_Lesson_MedalsTable.cpp
+C:\Users\profi\Documents\fishman_progect\13_Lesson_MedalsTable\13_Lesson_MedalsTable.cpp(70): warning C4715: MedalsTable::findCountry: значение возвращается не при всех путях выполнения
+  13_Lesson_MedalsTable.vcxproj -> C:\Users\profi\Documents\fishman_progect\13_Lesson_MedalsTable\x64\Debug\13_Lesson_MedalsTable.exe
