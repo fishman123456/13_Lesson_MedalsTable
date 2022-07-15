@@ -5,7 +5,7 @@ class MedalRow
 	char country[4];
 	int medals[3];
 public:
-	static const int GOLD { 0 };
+	static const int GOLD{ 0 };
 	static const int SILVER{ 1 };
 	static const int BRONZE{ 2 };
 	MedalRow(const char* countryP, const int* medalsP)
@@ -26,8 +26,8 @@ public:
 		return *this;
 	}
 	const char* getCountry()const { return country; }
-	
-		int& operator[](int idx)
+
+	int& operator[](int idx)
 	{
 		assert((idx >= 0 and idx < 3) and "Index out "
 			"of range!");
@@ -52,11 +52,11 @@ public:
 };
 class MedalsTable
 {
-public:
-	 int new maxSize { };
 private:
-	MedalRow medalRows[MedalsTable::maxSize];
+	int maxSize;
+	MedalRow* medalRows;
 	int size;
+
 	int findCountry(const char* country)const
 	{
 		for (int i{ 0 }; i < size; i++)
@@ -69,8 +69,9 @@ private:
 		}
 	}
 public:
-	MedalsTable() : size{ 0 } {};
-		MedalRow& operator[](const char* country)
+	MedalsTable(int maxSize) : size{ int maxsizeP }, medalRows{} {};
+	{};
+	MedalRow& operator[](const char* country)
 	{
 		int idx{ findCountry(country) };
 		if (idx == -1)
@@ -91,15 +92,15 @@ public:
 	}
 	void print()const
 	{
-			for (int i{ 0 }; i < size; ++i)
-			{
-				medalRows[i].print();
-			}
+		for (int i{ 0 }; i < size; ++i)
+		{
+			medalRows[i].print();
+		}
 	}
 };
 int main()
 {
-	MedalsTable mt1;
+	MedalsTable mt1(12);
 	std::cout << "Medals table #1:\n";
 	mt1["UKR"][MedalRow::GOLD] = 14;
 	mt1["UKR"][MedalRow::SILVER] = 5;
